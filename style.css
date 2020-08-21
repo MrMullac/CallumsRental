@@ -1,0 +1,122 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-weight: bold;
+  background: url("pog.jpg") no-repeat;
+  background-size: cover;
+}
+
+.name-back {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 520px;
+  height: 420px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  border: 3px solid #1ca44c;
+}
+
+.name-box{
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.name-box h1{
+  float: center;
+  text-align: center;
+  font-size: 30px;
+  border-bottom: 6px solid #1ca44c;
+  margin-bottom: 50px;
+  padding: 13px 0;
+  color: #1ca44c;
+}
+
+.textbox{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid #1ca44c;
+}
+
+.textbox i{
+  width: 26px;
+  float: left;
+  text-align: center;
+  color: #1ca44c;
+  padding: 4px;
+}
+
+.textbox input{
+  border: 0px solid;
+  border-radius: 2px;
+  outline: none;
+  background: none;
+  display: block;
+  color: #1ca44c;
+  font-size: 18px;
+  width: 80%;
+  float: left;
+  margin: 0 10px;
+  padding: 4px;
+}
+
+.textbox placeholder {
+  color: white;
+}
+
+.butn {
+  border: 2px solid #1ca44c;
+  background: none;
+  width: 100%;
+  font-size: 24px;
+  color: #1ca44c;
+}
+
+.erroricons {
+  position: absolute;
+  top: 11px;
+  right: 30px;
+  visibility: hidden;
+}
+
+.textbox small{
+  visibility: hidden;
+  position: relative;
+  bottom: 0;
+  left: 45px;
+}
+
+.textbox.success input {
+  border-color: #2ecc71;
+}
+
+.textbox.error input {
+  border-color: #e74c3c;
+}
+
+.textbox.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.textbox.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.textbox.error small{
+  color: #e74c3c;
+  visibility: visible;
+}
