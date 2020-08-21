@@ -13,6 +13,7 @@ body {
  body {
    background: url("phonebackground.jpg") no-repeat;
    background-size: cover;
+   background-position: center;
  }
 }
 
