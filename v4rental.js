@@ -11,11 +11,13 @@ var validName = false;
 // Fade script
 
 function startRental(){
-	var rentInfo = document.getElementById("rentStart")
+	var rentInfo = document.getElementById("rentStart");
 
 	$("#rentStart").fadeOut(400, function(){});
 	setTimeout(function(){
 			$("#nameinfo").fadeIn(500, function(){});
+			document.body.style.background = "url('nameimage.jpg') no-repeat";
+			document.body.style.backgroundSize = "cover";
 	}, 1500);
 }
 
@@ -32,7 +34,7 @@ function nameFormComplete(){
 form.addEventListener('submit', e => {
 	e.preventDefault();
 
-	validateInputs();
+	validateNameInputs();
 	while (validLastName == true && validFirstName === true) {
 		validName = true;
 		break;
@@ -43,7 +45,7 @@ form.addEventListener('submit', e => {
 	}
 });
 
-function validateInputs() {
+function validateNameInputs() {
 	// trim to remove the whitespaces
 	const firstnameValue = firstname.value.trim();
 	const lastnameValue = lastname.value.trim();
