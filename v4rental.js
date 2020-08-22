@@ -2,14 +2,14 @@
 const form = document.getElementById('nameform');
 const firstname = document.getElementById('firstname');
 const lastname = document.getElementById('lastname');
-const nameRegex = /^[a-zA-Z]+$/;
+const nameRegex =  /^[A-Z][a-z0-9_-]{1,19}$/;
 
 var validFirstName = false;
 var validLastName = false;
 var validName = false;
 
-// Fade script
 
+// Starting rental function.
 function startRental(){
 	var rentInfo = document.getElementById("rentStart");
 
@@ -30,15 +30,27 @@ function startRental(){
 	}, 1500);
 };
 
-
+// Form Name completion function
 function nameFormComplete(){
 	var nameInfo = document.getElementById("nameinfo")
 
+	$("#nameinfo").fadeOut(500, function(){});
+
+	var backgroundImage = $('#imageBackground')
+	var backgroundImgId = document.getElementById('imageBackground');
+
+	backgroundImage.fadeOut(1000, function(){
+		backgroundImgId.src = 'pog.jpg'
+		backgroundImage.fadeIn(1000);
+	})
+
+	document.getElementById('ageMSG').innerHTML = firstname.value + ", What's your age?";
+
 	setTimeout(function(){
-		$("#nameinfo").fadeOut(500, function(){});
 		$("#ageInfo").fadeIn(500, function(){});
-	}, 2000);
+	}, 1500);
 }
+
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -54,8 +66,9 @@ form.addEventListener('submit', e => {
 	}
 });
 
+// validating name inputs.
 function validateNameInputs() {
-	// trim to remove the whitespaces
+
 	const firstnameValue = firstname.value.trim();
 	const lastnameValue = lastname.value.trim();
 
@@ -74,9 +87,9 @@ function validateNameInputs() {
     setSuccessFor(lastname)
 		validLastName = true;
   }
-
 }
 
+// Error Function
 function setErrorFor(input, message) {
 	const textbox = input.parentElement;
 	const small = textbox.querySelector('small');
@@ -84,6 +97,7 @@ function setErrorFor(input, message) {
 	small.innerText = message;
 }
 
+// Success function
 function setSuccessFor(input) {
 	const textbox = input.parentElement;
 	textbox.className = 'textbox success';
