@@ -10,9 +10,22 @@ var validName = false;
 
 // Fade script
 
+function startRental(){
+	var rentInfo = document.getElementById("rentStart")
+
+	$("#rentStart").fadeOut(400, function(){});
+	setTimeout(function(){
+			$("#nameinfo").fadeIn(500, function(){});
+	}, 1500);
+}
+
+
 function nameFormComplete(){
 	var nameInfo = document.getElementById("nameinfo")
-	$("#nameinfo").fadeOut(500, function(){});
+
+	setTimeout(function(){
+		$("#nameinfo").fadeOut(500, function(){});
+	}, 2000)
 }
 
 form.addEventListener('submit', e => {

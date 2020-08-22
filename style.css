@@ -18,7 +18,7 @@ body {
  }
 }
 
-.name-back {
+.rent-back {
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
   width: 520px;
@@ -30,6 +30,48 @@ body {
   box-sizing: border-box;
   border: 3px solid #1ca44c;
   display: block;
+}
+
+.startrental-box{
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.startrental-box h1{
+  float: center;
+  text-align: center;
+  font-size: 30px;
+  border-bottom: 6px solid #1ca44c;
+  margin-bottom: 50px;
+  padding: 13px 0;
+  color: #1ca44c;
+}
+
+
+
+.name-back {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 520px;
+  height: 420px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  border: 3px solid #1ca44c;
+  display: none;
+}
+
+.startButton {
+  border: 2px solid #1ca44c;
+  background: none;
+  width: 100%;
+  font-size: 24px;
+  color: #1ca44c;
 }
 
 .name-box{
