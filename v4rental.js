@@ -3,10 +3,15 @@ const form = document.getElementById('nameform');
 const firstname = document.getElementById('firstname');
 const lastname = document.getElementById('lastname');
 const nameRegex =  /^[A-Z][a-z0-9_-]{1,19}$/;
+const userAge = document.getElementById('userage')
+const maxAge = 90;
+const minAge = 18;
+const ageForm = document.getElementById('ageForm')
 
 var validFirstName = false;
 var validLastName = false;
 var validName = false;
+var validAge = false;
 
 
 // Starting rental function.
@@ -32,7 +37,7 @@ function startRental(){
 
 // Form Name completion function
 function nameFormComplete(){
-	var nameInfo = document.getElementById("nameinfo")
+	var nameInfo = document.getElementById("nameinfo");
 
 	$("#nameinfo").fadeOut(500, function(){});
 
@@ -40,7 +45,7 @@ function nameFormComplete(){
 	var backgroundImgId = document.getElementById('imageBackground');
 
 	backgroundImage.fadeOut(1000, function(){
-		backgroundImgId.src = 'pog.jpg'
+		backgroundImgId.src = 'background.jpg'
 		backgroundImage.fadeIn(1000);
 	})
 
@@ -51,6 +56,23 @@ function nameFormComplete(){
 	}, 1500);
 }
 
+function ageFormComplete(){
+	var ageInfo = document.getElementById("ageInfo");
+
+	$("#ageInfo").fadeOut(500, function(){});
+
+	var backgroundImage = $('#imageBackground')
+	var backgroundImgId = document.getElementById('imageBackground');
+
+	backgroundImage.fadeOut(1000, function(){
+		backgroundImgId.src = 'background.jpg'
+		backgroundImage.fadeIn(1000);
+	})
+
+	//setTimeout(function(){
+	//	$("#ageInfo").fadeIn(500, function(){});
+	//}, 1500);
+}
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -62,9 +84,20 @@ form.addEventListener('submit', e => {
 	}
 
 	if(validName == true){
-		nameFormComplete()
+		nameFormComplete();
 	}
 });
+
+ageForm.addEventListener('submit', e => {
+	e.preventDefault();
+
+	validateAgeInputs();
+
+	if(validAge == true){
+		ageFormComplete();
+	}
+});
+
 
 // validating name inputs.
 function validateNameInputs() {
@@ -88,6 +121,21 @@ function validateNameInputs() {
 		validLastName = true;
   }
 }
+
+// Validating age inputs
+function validateAgeInputs(){
+
+	const ageValue = userAge.value.trim();
+
+	if(ageValue < minAge || ageValue > maxAge){
+		setErrorFor(userAge, 'Your either too young/old.')
+		validAge = false;
+	} else {
+		setSuccessFor(userAge)
+		validAge = true;
+	}
+}
+
 
 // Error Function
 function setErrorFor(input, message) {
