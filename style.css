@@ -9,6 +9,7 @@ body {
   background-size: cover;
 }
 
+
 @media only screen and (max-width: 1140px){
  body {
    background: url("phonebackground.jpg") no-repeat;
@@ -28,6 +29,7 @@ body {
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   border: 3px solid #1ca44c;
+  display: block;
 }
 
 .name-box{
@@ -125,6 +127,103 @@ body {
 }
 
 .textbox.error small{
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.age-back {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  width: 520px;
+  height: 420px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  border: 3px solid #1ca44c;
+}
+
+.age-box{
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.age-box h1{
+  float: center;
+  text-align: center;
+  font-size: 30px;
+  border-bottom: 6px solid #1ca44c;
+  margin-bottom: 50px;
+  padding: 13px 0;
+  color: #1ca44c;
+}
+
+.agebox {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 1px solid #1ca44c;
+}
+
+.agebox i{
+  width: 26px;
+  float: left;
+  text-align: center;
+  color: #1ca44c;
+  padding: 4px;
+}
+
+.agebox input{
+  border: 0px solid;
+  border-radius: 2px;
+  outline: none;
+  background: none;
+  display: block;
+  color: #1ca44c;
+  font-size: 18px;
+  width: 80%;
+  float: left;
+  margin: 0 10px;
+  padding: 4px;
+}
+
+.agebox placeholder {
+  color: white;
+}
+
+.agebox small{
+  visibility: hidden;
+  position: relative;
+  bottom: 0;
+  left: 45px;
+}
+
+.agebox.success input {
+  border-color: #2ecc71;
+}
+
+.agebox.error input {
+  border-color: #e74c3c;
+}
+
+.agebox.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.agebox.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.agebox.error small{
   color: #e74c3c;
   visibility: visible;
 }

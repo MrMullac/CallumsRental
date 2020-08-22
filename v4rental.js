@@ -8,6 +8,13 @@ var validFirstName = false;
 var validLastName = false;
 var validName = false;
 
+// Fade script
+
+function nameFormComplete(){
+	var nameInfo = document.getElementById("nameinfo")
+	$("#nameinfo").fadeOut(500, function(){});
+}
+
 form.addEventListener('submit', e => {
 	e.preventDefault();
 
@@ -18,8 +25,7 @@ form.addEventListener('submit', e => {
 	}
 
 	if(validName == true){
-		delay(8)
-		window.location.assign('age.html');
+		nameFormComplete()
 	}
 });
 
@@ -56,33 +62,4 @@ function setErrorFor(input, message) {
 function setSuccessFor(input) {
 	const textbox = input.parentElement;
 	textbox.className = 'textbox success';
-}
-
-function delay(n){
-	n = n || 2000;
-	return new Promise((done) => {
-		setTimeout(() => {
-			done();
-		}, n);
-	});
-}
-
-function pageTransition() {
-	var tl = gasp.timeline();
-	tl.to(".loading-screen", {
-		duration: 1.2,
-		width: "100%",
-		left: "0%",
-		ease: "Expo.easeInOut"
-	});
-
-	tl.to(".loading-screen", {
-		duration: 1,
-		width: "100%",
-		left: "100%",
-		ease: "Expo.easeInOut",
-		delay: 0.3
-	});
-
-	tl.set(".loading-screen", { left: "-100%" });
 }
