@@ -25,7 +25,8 @@ function nameFormComplete(){
 
 	setTimeout(function(){
 		$("#nameinfo").fadeOut(500, function(){});
-	}, 2000)
+		$("#ageInfo").fadeIn(500, function(){});
+	}, 2000);
 }
 
 form.addEventListener('submit', e => {
