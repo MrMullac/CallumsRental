@@ -14,12 +14,21 @@ function startRental(){
 	var rentInfo = document.getElementById("rentStart");
 
 	$("#rentStart").fadeOut(400, function(){});
+
+	var backgroundImage = $('#imageBackground')
+	var backgroundImgId = document.getElementById('imageBackground');
+
+	backgroundImage.fadeOut(1000, function(){
+		backgroundImgId.src = 'nameimage.jpg'
+		backgroundImage.fadeIn(1000);
+	})
+
 	setTimeout(function(){
+			var backgroundImage = $('#imageBackground')
+			var backgroundImgId = document.getElementById('imageBackground');
 			$("#nameinfo").fadeIn(500, function(){});
-			document.body.style.background = "url('nameimage.jpg') no-repeat";
-			document.body.style.backgroundSize = "cover";
 	}, 1500);
-}
+};
 
 
 function nameFormComplete(){
