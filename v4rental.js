@@ -44,7 +44,7 @@ var mclarenP = {
 	name: "Mclaren P1",
 	carCategory: "Super",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 2
 }
 
 // Muscle
@@ -436,8 +436,8 @@ function validateAgeInputs(){ // Validating the age Inputs
 // Error function
 // Purpose is to run a error message/symbol to the user if something is wrong.
 /********************************************************************/
-function setErrorFor(input, message) { // Sending error message function
-	const textbox = input.parentElement; // Getting the parent element of the input.
+function setErrorFor(_input, _message) { // Sending error message function
+	const textbox = _input.parentElement; // Getting the parent element of the input.
 	const small = textbox.querySelector('small'); // looking for the small element
 	textbox.className = 'textbox error'; // Setting the class name to error
 	small.innerText = message; // adding the message to the text
@@ -447,8 +447,8 @@ function setErrorFor(input, message) { // Sending error message function
 // Success Function
 // Purpose is show that the input is right.
 /********************************************************************/
-function setSuccessFor(input) {
-	const textbox = input.parentElement; // Getting the parent element of input
+function setSuccessFor(_input) {
+	const textbox = _input.parentElement; // Getting the parent element of input
 	textbox.className = 'textbox success'; // Adding success to the class
 }
 
@@ -457,10 +457,7 @@ function setSuccessFor(input) {
 // Purpose is to choose a car that suits the user.
 /********************************************************************/
 function selectCar(){
-	selectedCar = rentVehicles.find(
-	    (element) =>
-	      element.carCategory == userCategory && element.carDoors == userDoors
-	  );
+	selectedCar = rentVehicles.find((element) => element.carCategory == userCategory && element.carDoors == userDoors);
 }
 
 /********************************************************************/
