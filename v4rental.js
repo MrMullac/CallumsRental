@@ -13,7 +13,7 @@
 
 
 // Constants
-const form = document.getElementById('nameform'); // Getting the name form from html.
+const nameform = document.getElementById('nameform'); // Getting the name form from html.
 const firstname = document.getElementById('firstname'); // Getting the users first name input.
 const lastname = document.getElementById('lastname'); // Getting the users last name input.
 const nameRegex =  /^[A-Z][a-z0-9_-]{1,19}$/; // The name regex.
@@ -109,7 +109,7 @@ function ageFormComplete(){
 	//}, 1500);
 }
 
-form.addEventListener('submit', e => { // Listening for event.
+nameform.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
 
 	validateNameInputs(); // Running validate function for name
@@ -168,7 +168,12 @@ function validateAgeInputs(){ // Validating the age Inputs
 	const ageValue = userAge.value.trim(); // trimming any spaces off the end
 
 	if(ageValue < minAge || ageValue > maxAge){ // Checking the age is within range.
-		setErrorFor(userAge, 'Your either too young/old.') // Sending error message.
+		if(ageValue < minAge){ // Chgecking if age is under the min age to send too young message.
+			setErrorFor(userAge, 'Your too young to rent a vehicle.') // Sending error message.
+		}
+		if(ageValue > maxAge){ // Checking if age is over the max age to send too old message.
+			setErrorFor(userAge, 'Your too old to rent a vehicle.') // Sending error message.
+		}
 		validAge = false; // Making sure age isn't valid
 	} else {
 		setSuccessFor(userAge) // Sending success message
