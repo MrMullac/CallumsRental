@@ -22,12 +22,16 @@ const maxAge = 90; // Max age available to rent.
 const minAge = 18; // Min age required to rent.
 const ageForm = document.getElementById('ageForm') // Getting the age form from html.
 const rentalBasePrice = 15 // The Rentals base price.
+const categoryForm = document.getElementById('categoryForm')
+const categorySelect = document.getElementById('categories')
 
 // Variables
 var validFirstName = false; // Valid first name
 var validLastName = false; // Valid last name
 var validName = false; // Valid Name
 var validAge = false; // Valid Age
+var userCategory;
+
 
 // Vehicle Tables
 
@@ -106,10 +110,33 @@ function ageFormComplete(){
 		backgroundImage.fadeIn(1000); // Fading new image in
 	})
 
+	setTimeout(function(){
+		$("#categoryInfo").fadeIn(500, function(){});
+	}, 1500);
+}
+
+/********************************************************************/
+// Age Form Complete
+// Purpose is what takes place once the form is complete for the age.
+/********************************************************************/
+function categoryFormComplete(){
+	var categoryInfo = document.getElementById("categoryInfo"); // Getting the age info from html.
+
+	$("#categoryInfo").fadeOut(500, function(){}); // Fading the age info out.
+
+	var backgroundImage = $('#imageBackground') // Background variable for fades
+	var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
+
+	backgroundImage.fadeOut(1000, function(){ // fading background image out
+		backgroundImgId.src = 'background.jpg' // changing background image to new src.
+		backgroundImage.fadeIn(1000); // Fading new image in
+	})
+
 	//setTimeout(function(){
-	//	$("#ageInfo").fadeIn(500, function(){});
+		//$("#categoryInfo").fadeIn(500, function(){});
 	//}, 1500);
 }
+
 
 nameform.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
@@ -133,6 +160,14 @@ ageForm.addEventListener('submit', e => { // Listening for event.
 	if(validAge == true){ // Checking age is valid
 		ageFormComplete(); // Running complete function if age is valid
 	}
+});
+
+categoryForm.addEventListener('submit', e => { // Listening for event.
+	e.preventDefault();
+
+	userCategory = categorySelect.options[categorySelect.selectedIndex].value;
+	categoryFormComplete()
+	console.log(userCategory)
 });
 
 /********************************************************************/
@@ -202,6 +237,7 @@ function setSuccessFor(input) {
 	const textbox = input.parentElement; // Getting the parent element of input
 	textbox.className = 'textbox success'; // Adding success to the class
 }
+
 
 /********************************************************************/
 //    END OF PROGRAM
