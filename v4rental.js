@@ -17,13 +17,15 @@ const nameform = document.getElementById('nameform'); // Getting the name form f
 const firstname = document.getElementById('firstname'); // Getting the users first name input.
 const lastname = document.getElementById('lastname'); // Getting the users last name input.
 const nameRegex =  /^[A-Z][a-z0-9_-]{1,19}$/; // The name regex.
-const userAge = document.getElementById('userage') // Getting the users age input.
+const userAge = document.getElementById('userage'); // Getting the users age input.
 const maxAge = 90; // Max age available to rent.
 const minAge = 18; // Min age required to rent.
-const ageForm = document.getElementById('ageForm') // Getting the age form from html.
+const ageForm = document.getElementById('ageForm'); // Getting the age form from html.
 const rentalBasePrice = 15 // The Rentals base price.
-const categoryForm = document.getElementById('categoryForm')
-const categorySelect = document.getElementById('categories')
+const categoryForm = document.getElementById('categoryForm');
+const categorySelect = document.getElementById('categories');
+const doorForm = document.getElementById('doorForm');
+const doorSelect = document.getElementById('doors');
 
 // Variables
 var validFirstName = false; // Valid first name
@@ -31,20 +33,195 @@ var validLastName = false; // Valid last name
 var validName = false; // Valid Name
 var validAge = false; // Valid Age
 var userCategory;
+var userDoors;
+var selectedCar;
 
 
 // Vehicle Tables
 
-var example = {
-	name: "Test",
-	carCategory: "Test",
+// Supercars
+var mclarenP = {
+	name: "Mclaren P1",
+	carCategory: "Super",
+	carDoors: 2,
+	rentPrice: 1
+}
+
+// Muscle
+var dodgeChargerRT = {
+	name: "Dodge Challenger R/T",
+	carCategory: "Muscle",
+	carDoors: 2,
+	rentPrice: 1
+}
+
+// SUV
+var jeepWrangler = {
+	name: "Jeep Wrangler JL 2-Door",
+	carCategory: "SUV",
+	carDoors: 2,
+	rentPrice: 1
+}
+var fordEscape = {
+	name: "2020 Ford Escape",
+	carCategory: "SUV",
+	carDoors: 4,
+	rentPrice: 1
+}
+
+// Sedan
+var hondaAccord = {
+	name: "2020 Honda Accord",
+	carCategory: "Sedan",
+	carDoors: 4,
+	rentPrice: 1
+}
+var mazdaRX = {
+	name: "2012 Mazda RX-8",
+	carCategory: "Sedan",
+	carDoors: 2,
+	rentPrice: 1
+}
+
+// Hatchback
+var hondaTypeR = {
+	name: "2020 Honda Civic Type R",
+	carCategory: "Hatchback",
+	carDoors: 4,
+	rentPrice: 1
+}
+var hyuandaiVelosterN = {
+	name: "2020 Hyundai Veloster N",
+	carCategory: "Hatchback",
+	carDoors: 2,
+	rentPrice: 1
+}
+
+// Coupe
+var fordMustang = {
+	name: "2020 Ford Mustang",
+	carCategory: "Coupe",
+	carDoors: 2,
+	rentPrice: 1
+}
+var audiA = {
+	name: "2018 Audi A5 Premium Plus",
+	carCategory: "Coupe",
+	carDoors: 4,
+	rentPrice: 1
+}
+
+// Compact
+var kiaSoul = {
+	name: "2018 Kia Soul",
+	carCategory: "Compact",
+	carDoors: 4,
+	rentPrice: 1
+}
+var fiatFive = {
+	name: "2017 Fiat 500",
+	carCategory: "Compact",
+	carDoors: 2,
+	rentPrice: 1
+}
+
+// Sports
+var mercadesAMG = {
+	name: "Mercedes-AMG C63",
+	carCategory: "Sports",
+	carDoors: 4,
+	rentPrice: 1
+}
+var audiR = {
+	name: "2019 Audi R8",
+	carCategory: "Sports",
+	carDoors: 2,
+	rentPrice: 1
+}
+
+// Convertible
+var jaguarFTypeConv = {
+	name: "2016 Jaguar F-Type Convertible",
+	carCategory: "Convertible",
+	carDoors: 2,
+	rentPrice: 1
+}
+var porschePanamera = {
+	name: "2011 Porsche Panamera Cabrio",
+	carCategory: "Convertible",
+	carDoors: 4,
+	rentPrice: 1
+}
+
+// Van
+var toyotaHiace = {
+	name: "Toyota Hiace ZR Cargo Van",
+	carCategory: "Van",
+	carDoors: 2,
+	rentPrice: 1
+}
+
+// Luxury
+var rollsroyceDawn = {
+	name: "Rolls-Royce Dawn 2016",
+	carCategory: "Van",
+	carDoors: 2,
+	rentPrice: 1
+}
+var rollsroyceGhost = {
+	name: "2012 Rolls-Royce Ghost",
+	carCategory: "Van",
+	carDoors: 4,
+	rentPrice: 1
+}
+
+// Ute
+var fordUteFalcon = {
+	name: "2015 Ford Falcon Ute",
+	carCategory: "Ute",
+	carDoors: 2,
+	rentPrice: 1
+}
+var fordRaptor = {
+	name: "2019 Ford Range Raptor",
+	carCategory: "Ute",
+	carDoors: 4,
+	rentPrice: 1
+}
+
+// Pickup
+var fordF = {
+	name: "2020 Ford f-150",
+	carCategory: "Pickup",
 	carDoors: 4,
 	rentPrice: 1
 }
 
 // Array of vehicles
 
-const rentVehicles = [example]
+const rentVehicles = [
+	mclarenP,
+	dodgeChargerRT,
+	jeepWrangler,
+	fordEscape,
+	hondaAccord,
+	mazdaRX,
+	hondaTypeR,
+	hyuandaiVelosterN,
+	fordMustang,
+  audiA,
+	kiaSoul,
+	fiatFive,
+	mercadesAMG,
+	audiR,
+	jaguarFTypeConv,
+	porschePanamera,
+	toyotaHiace,
+	rollsroyceDawn,
+	rollsroyceGhost,
+	fordUteFalcon,
+	fordRaptor,
+]
 
 
 /********************************************************************/
@@ -116,7 +293,7 @@ function ageFormComplete(){
 }
 
 /********************************************************************/
-// Age Form Complete
+// Category Form Complete
 // Purpose is what takes place once the form is complete for the age.
 /********************************************************************/
 function categoryFormComplete(){
@@ -132,10 +309,39 @@ function categoryFormComplete(){
 		backgroundImage.fadeIn(1000); // Fading new image in
 	})
 
-	//setTimeout(function(){
-		//$("#categoryInfo").fadeIn(500, function(){});
-	//}, 1500);
+	setTimeout(function(){
+		$("#doorInfo").fadeIn(500, function(){});
+	}, 1500);
 }
+
+/********************************************************************/
+// Door Form Complete
+// Purpose is what takes place once the form is complete for the age.
+/********************************************************************/
+function doorFormComplete(){
+	var doorInfo = document.getElementById("categoryInfo"); // Getting the age info from html.
+
+	$("#doorInfo").fadeOut(500, function(){}); // Fading the age info out.
+
+	selectCar()
+
+	console.log(selectedCar)
+	var backgroundImage = $('#imageBackground') // Background variable for fades
+	var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
+
+	backgroundImage.fadeOut(1000, function(){ // fading background image out
+		backgroundImgId.src = 'background.jpg' // changing background image to new src.
+		backgroundImage.fadeIn(1000); // Fading new image in
+	})
+
+	var displaycarInfo = document.getElementById("displaycarInfo");
+		document.getElementById('carInfoMSG').innerHTML = firstname.value + ", We have chosen you a car! It is the "+ selectedCar.name;
+
+	setTimeout(function(){
+		$("#displaycarInfo").fadeIn(500, function(){});
+	}, 1500);
+}
+
 
 
 nameform.addEventListener('submit', e => { // Listening for event.
@@ -168,6 +374,14 @@ categoryForm.addEventListener('submit', e => { // Listening for event.
 	userCategory = categorySelect.options[categorySelect.selectedIndex].value;
 	categoryFormComplete()
 	console.log(userCategory)
+});
+
+doorForm.addEventListener('submit', e => { // Listening for event.
+	e.preventDefault();
+
+	userDoors = doorSelect.options[doorSelect.selectedIndex].value;
+	doorFormComplete()
+	console.log(userDoors)
 });
 
 /********************************************************************/
@@ -238,6 +452,16 @@ function setSuccessFor(input) {
 	textbox.className = 'textbox success'; // Adding success to the class
 }
 
+/********************************************************************/
+// Select Car Function
+// Purpose is to choose a car that suits the user.
+/********************************************************************/
+function selectCar(){
+	selectedCar = rentVehicles.find(
+	    (element) =>
+	      element.carCategory == userCategory && element.carDoors == userDoors
+	  );
+}
 
 /********************************************************************/
 //    END OF PROGRAM

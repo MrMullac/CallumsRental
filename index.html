@@ -80,13 +80,13 @@
     <div class="category-back" id="categoryInfo">
       <div class="category-box">
         <form action="/" method="get" id="categoryForm">
-          <h1 id='categoryMSG'></h1>
+          <h1 id='categoryMSG'>Which category would you like?</h1>
           <div class="categorybox">
             <select name="Category" id="categories">
               <option value="Super">Supercars</option>
               <option value="Muscle">Muscle</option>
               <option value="SUV">SUV</option>
-              <option value="Sedan">Sedan</option>
+              <option value="Sedan">Sedans</option>
               <option value="Hatchback">Hatchback</option>
               <option value="Coupe">Coupe</option>
               <option value="Compact">Compact</option>
@@ -102,5 +102,32 @@
           <button class="butn">Continue</button>
         </form>
       </div>
+    </div>
+
+    <div class="door-back" id="doorInfo">
+      <div class="door-box">
+        <form action="/" method="get" id="doorForm">
+          <h1 id='doorMSG'>How many doors would you like?</h1>
+          <div class="doorbox">
+            <select name="Doors" id="doors">
+              <option value=2>2 Doors</option>
+              <option value=4>4 Doors</option>
+            </select>
+          </div>
+
+          <button class="butn">Continue</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="displaycar-back" id="displaycarInfo">
+      <div class="displaycar-box">
+        <h1 id="carInfoMSG"></h1>
+
+
+      </div>
+    </div>
+
+
     <script src="v4rental.js"></script>
 </body></html>
