@@ -21,6 +21,7 @@ const userAge = document.getElementById('userage') // Getting the users age inpu
 const maxAge = 90; // Max age available to rent.
 const minAge = 18; // Min age required to rent.
 const ageForm = document.getElementById('ageForm') // Getting the age form from html.
+const rentalBasePrice = 15 // The Rentals base price.
 
 // Variables
 var validFirstName = false; // Valid first name
@@ -40,6 +41,7 @@ var example = {
 // Array of vehicles
 
 const rentVehicles = [example]
+
 
 /********************************************************************/
 // Start Rental Function
