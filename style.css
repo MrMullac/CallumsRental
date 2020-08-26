@@ -57,12 +57,12 @@ body {
 }
 
 .rent-back {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  width: 520px;
-  height: 420px;
+  width: 720px;
+  height: 520px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
@@ -88,15 +88,13 @@ body {
   color: #1ca44c;
 }
 
-
-
 .name-back {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   width: 520px;
   height: 420px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
@@ -106,10 +104,11 @@ body {
 
 .startButton {
   border: 2px solid #1ca44c;
-  background: none;
+  background: #1ca44c;
   width: 100%;
-  font-size: 24px;
-  color: #1ca44c;
+  height: 40px;
+  font-size: 18px;
+  color: white;
 }
 
 .name-box{
@@ -168,10 +167,10 @@ body {
 
 .butn {
   border: 2px solid #1ca44c;
-  background: none;
+  background: #1ca44c;
   width: 100%;
   font-size: 24px;
-  color: #1ca44c;
+  color: white;
 }
 
 .erroricons {
@@ -212,12 +211,12 @@ body {
 }
 
 .age-back {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   width: 520px;
   height: 420px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
@@ -310,12 +309,12 @@ body {
 }
 
 .category-back {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   width: 520px;
   height: 420px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
@@ -336,7 +335,7 @@ body {
   text-align: center;
   font-size: 30px;
   border-bottom: 6px solid #1ca44c;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   padding: 13px 0;
   color: #1ca44c;
 }
@@ -352,12 +351,12 @@ body {
 }
 
 .door-back {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   width: 520px;
   height: 420px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
@@ -378,7 +377,7 @@ body {
   text-align: center;
   font-size: 30px;
   border-bottom: 6px solid #1ca44c;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   padding: 13px 0;
   color: #1ca44c;
 }
@@ -394,12 +393,12 @@ body {
 }
 
 .displaycar-back {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
   width: 520px;
   height: 420px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
@@ -423,4 +422,16 @@ body {
   margin-bottom: 50px;
   padding: 13px 0;
   color: #1ca44c;
+}
+
+.displaycar-box p {
+  text-align: center;
+  color: #1ca44c;
+}
+
+.dropDown {
+  background-color: white;
+  color: black;
+  margin-bottom: 20px;
+  font-weight: normal;
 }

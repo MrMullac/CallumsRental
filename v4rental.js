@@ -36,7 +36,6 @@ var userCategory;
 var userDoors;
 var selectedCar;
 
-
 // Vehicle Tables
 
 // Supercars
@@ -44,7 +43,7 @@ var mclarenP = {
 	name: "Mclaren P1",
 	carCategory: "Super",
 	carDoors: 2,
-	rentPrice: rentalBasePrice * 2
+	rentPrice: rentalBasePrice * 3
 }
 
 // Muscle
@@ -335,15 +334,18 @@ function doorFormComplete(){
 	})
 
 	var displaycarInfo = document.getElementById("displaycarInfo");
-		document.getElementById('carInfoMSG').innerHTML = firstname.value + ", We have chosen you a car! It is the "+ selectedCar.name;
-
+	document.getElementById('carInfoMSG').innerHTML = firstname.value + ", We have chosen you a car! It is the "+ selectedCar.name;
+	document.getElementById('carPriceMSG').innerHTML = "It will cost you $"+ selectedCar.rentPrice +" per hour."
 	setTimeout(function(){
 		$("#displaycarInfo").fadeIn(500, function(){});
 	}, 1500);
 }
 
 
-
+/********************************************************************/
+// Form Sent Listners
+// Purpose is what takes place once the form is complete for the age.
+/********************************************************************/
 nameform.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
 
@@ -440,7 +442,7 @@ function setErrorFor(_input, _message) { // Sending error message function
 	const textbox = _input.parentElement; // Getting the parent element of the input.
 	const small = textbox.querySelector('small'); // looking for the small element
 	textbox.className = 'textbox error'; // Setting the class name to error
-	small.innerText = message; // adding the message to the text
+	small.innerText = _message; // adding the message to the text
 }
 
 /********************************************************************/

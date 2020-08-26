@@ -83,7 +83,7 @@
         <form action="/" method="get" id="categoryForm">
           <h1 id='categoryMSG'>Which category would you like?</h1>
           <div class="categorybox">
-            <select name="Category" id="categories">
+            <center> <select name="Category" id="categories" class="dropDown">
               <option value="Super">Supercars</option>
               <option value="Muscle">Muscle</option>
               <option value="SUV">SUV</option>
@@ -97,7 +97,7 @@
               <option value="Luxury">Luxury</option>
               <option value="Ute">Ute</option>
               <option value="Pickup">Pickup Truck</option>
-            </select>
+            </select> </center>
           </div>
 
           <button class="butn">Continue</button>
@@ -110,10 +110,10 @@
         <form action="/" method="get" id="doorForm">
           <h1 id='doorMSG'>How many doors would you like?</h1>
           <div class="doorbox">
-            <select name="Doors" id="doors">
+          <center>  <select name="Doors" id="doors" class="dropDown">
               <option value=2>2 Doors</option>
               <option value=4>4 Doors</option>
-            </select>
+            </select> </center>
           </div>
 
           <button class="butn">Continue</button>
@@ -124,8 +124,7 @@
     <div class="displaycar-back" id="displaycarInfo">
       <div class="displaycar-box">
         <h1 id="carInfoMSG"></h1>
-
-
+        <p id="carPriceMSG"></p>
       </div>
     </div>
 
