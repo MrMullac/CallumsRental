@@ -26,6 +26,7 @@ const categoryForm = document.getElementById('categoryForm');
 const categorySelect = document.getElementById('categories');
 const doorForm = document.getElementById('doorForm');
 const doorSelect = document.getElementById('doors');
+const daysForm = document.getElementById('daysForm');
 
 // Variables
 var validFirstName = false; // Valid first name
@@ -341,6 +342,26 @@ function doorFormComplete(){
 	}, 1500);
 }
 
+function displayCarComplete(){
+	var displayCarInfo = document.getElementById("displaycarInfo"); // Getting the age info from html.
+
+	$("#displaycarInfo").fadeOut(500, function(){}); // Fading the age info out.
+
+
+	var backgroundImage = $('#imageBackground') // Background variable for fades
+	var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
+
+	backgroundImage.fadeOut(1000, function(){ // fading background image out
+		backgroundImgId.src = 'background.jpg' // changing background image to new src.
+		backgroundImage.fadeIn(1000); // Fading new image in
+	})
+
+	var daysInfo = document.getElementById("daysInfo");
+	setTimeout(function(){
+		$("#daysInfo").fadeIn(500, function(){});
+	}, 1500);
+
+}
 
 /********************************************************************/
 // Form Sent Listners
@@ -385,6 +406,13 @@ doorForm.addEventListener('submit', e => { // Listening for event.
 	doorFormComplete()
 	console.log(userDoors)
 });
+
+daysForm.addEventListener('submit', e => { // Listening for event.
+	e.preventDefault();
+
+	displayCarComplete();
+});
+
 
 /********************************************************************/
 // Validating Name Inputs
