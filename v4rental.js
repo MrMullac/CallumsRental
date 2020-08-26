@@ -93,7 +93,7 @@ var hyuandaiVelosterN = {
 	name: "2020 Hyundai Veloster N",
 	carCategory: "Hatchback",
 	carDoors: 2,
-	rentPrice: rentalbasPrice * 2.1
+	rentPrice: rentalBasePrice * 2.1
 }
 
 // Coupe
