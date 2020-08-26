@@ -163,13 +163,13 @@ var toyotaHiace = {
 // Luxury
 var rollsroyceDawn = {
 	name: "Rolls-Royce Dawn 2016",
-	carCategory: "Van",
+	carCategory: "Luxury",
 	carDoors: 2,
 	rentPrice: 1
 }
 var rollsroyceGhost = {
 	name: "2012 Rolls-Royce Ghost",
-	carCategory: "Van",
+	carCategory: "Luxury",
 	carDoors: 4,
 	rentPrice: 1
 }
