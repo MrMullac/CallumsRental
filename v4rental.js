@@ -43,7 +43,7 @@ var mclarenP = {
 	name: "Mclaren P1",
 	carCategory: "Super",
 	carDoors: 2,
-	rentPrice: rentalBasePrice * 3
+	rentPrice: rentalBasePrice * 4
 }
 
 // Muscle
@@ -51,7 +51,7 @@ var dodgeChargerRT = {
 	name: "Dodge Challenger R/T",
 	carCategory: "Muscle",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 2.6
 }
 
 // SUV
@@ -59,13 +59,13 @@ var jeepWrangler = {
 	name: "Jeep Wrangler JL 2-Door",
 	carCategory: "SUV",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 1.6
 }
 var fordEscape = {
 	name: "2020 Ford Escape",
 	carCategory: "SUV",
 	carDoors: 4,
-	rentPrice: 1
+	rentPrice: rentalbasePrice * 1.7
 }
 
 // Sedan
@@ -73,13 +73,13 @@ var hondaAccord = {
 	name: "2020 Honda Accord",
 	carCategory: "Sedan",
 	carDoors: 4,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 1.5
 }
 var mazdaRX = {
 	name: "2012 Mazda RX-8",
 	carCategory: "Sedan",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 1.2
 }
 
 // Hatchback
@@ -87,13 +87,13 @@ var hondaTypeR = {
 	name: "2020 Honda Civic Type R",
 	carCategory: "Hatchback",
 	carDoors: 4,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 2.2
 }
 var hyuandaiVelosterN = {
 	name: "2020 Hyundai Veloster N",
 	carCategory: "Hatchback",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalbasPrice * 2.1
 }
 
 // Coupe
@@ -101,13 +101,13 @@ var fordMustang = {
 	name: "2020 Ford Mustang",
 	carCategory: "Coupe",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 2.8
 }
 var audiA = {
 	name: "2018 Audi A5 Premium Plus",
 	carCategory: "Coupe",
 	carDoors: 4,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 2.6
 }
 
 // Compact
@@ -115,13 +115,13 @@ var kiaSoul = {
 	name: "2018 Kia Soul",
 	carCategory: "Compact",
 	carDoors: 4,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 1.5
 }
 var fiatFive = {
 	name: "2017 Fiat 500",
 	carCategory: "Compact",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 1.1
 }
 
 // Sports
@@ -129,13 +129,13 @@ var mercadesAMG = {
 	name: "Mercedes-AMG C63",
 	carCategory: "Sports",
 	carDoors: 4,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 3
 }
 var audiR = {
 	name: "2019 Audi R8",
 	carCategory: "Sports",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 3.2
 }
 
 // Convertible
@@ -143,13 +143,13 @@ var jaguarFTypeConv = {
 	name: "2016 Jaguar F-Type Convertible",
 	carCategory: "Convertible",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 2.7
 }
 var porschePanamera = {
 	name: "2011 Porsche Panamera Cabrio",
 	carCategory: "Convertible",
 	carDoors: 4,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 2.4
 }
 
 // Van
@@ -157,7 +157,7 @@ var toyotaHiace = {
 	name: "Toyota Hiace ZR Cargo Van",
 	carCategory: "Van",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 2
 }
 
 // Luxury
@@ -165,13 +165,13 @@ var rollsroyceDawn = {
 	name: "Rolls-Royce Dawn 2016",
 	carCategory: "Luxury",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 6
 }
 var rollsroyceGhost = {
 	name: "2012 Rolls-Royce Ghost",
 	carCategory: "Luxury",
 	carDoors: 4,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 6
 }
 
 // Ute
@@ -179,13 +179,13 @@ var fordUteFalcon = {
 	name: "2015 Ford Falcon Ute",
 	carCategory: "Ute",
 	carDoors: 2,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 1.9
 }
 var fordRaptor = {
 	name: "2019 Ford Range Raptor",
 	carCategory: "Ute",
 	carDoors: 4,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 2.1
 }
 
 // Pickup
@@ -193,7 +193,7 @@ var fordF = {
 	name: "2020 Ford f-150",
 	carCategory: "Pickup",
 	carDoors: 4,
-	rentPrice: 1
+	rentPrice: rentalBasePrice * 2
 }
 
 // Array of vehicles
