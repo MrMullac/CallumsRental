@@ -65,7 +65,7 @@ var fordEscape = {
 	name: "2020 Ford Escape",
 	carCategory: "SUV",
 	carDoors: 4,
-	rentPrice: rentalbasePrice * 1.7
+	rentPrice: rentalBasePrice * 1.7
 }
 
 // Sedan
