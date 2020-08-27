@@ -42,6 +42,9 @@ var selectedCar;
 var userDays;
 var clientUsername;
 
+var backgroundImage = $('#imageBackground') // Background variable for fades
+var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
+
 // Vehicle Tables
 
 // Supercars
@@ -238,9 +241,6 @@ function startRental(){
 
 	$("#rentStart").fadeOut(400, function(){}); // Fading the box out.
 
-	var backgroundImage = $('#imageBackground') // Background image variable for fadeouts.
-	var backgroundImgId = document.getElementById('imageBackground'); // Background image Id
-
 	backgroundImage.fadeOut(1000, function(){ // Background image fade out.
 		backgroundImgId.src = 'nameimage.jpg' // Changing image src to new one
 		backgroundImage.fadeIn(1000); // fading that image back in
@@ -259,9 +259,6 @@ function nameFormComplete(){
 	var nameInfo = document.getElementById("nameinfo"); // Getting the name info id
 
 	$("#nameinfo").fadeOut(500, function(){}); // Fading the name box
-
-	var backgroundImage = $('#imageBackground') // Background image variable fades.
-	var backgroundImgId = document.getElementById('imageBackground'); // Background image id
 
 	backgroundImage.fadeOut(1000, function(){
 		backgroundImgId.src = 'background.jpg' // Background image new src
@@ -284,9 +281,6 @@ function ageFormComplete(){
 
 	$("#ageInfo").fadeOut(500, function(){}); // Fading the age info out.
 
-	var backgroundImage = $('#imageBackground') // Background variable for fades
-	var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
-
 	backgroundImage.fadeOut(1000, function(){ // fading background image out
 		backgroundImgId.src = 'background.jpg' // changing background image to new src.
 		backgroundImage.fadeIn(1000); // Fading new image in
@@ -306,13 +300,19 @@ function categoryFormComplete(){
 
 	$("#categoryInfo").fadeOut(500, function(){}); // Fading the age info out.
 
-	var backgroundImage = $('#imageBackground') // Background variable for fades
-	var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
-
 	backgroundImage.fadeOut(1000, function(){ // fading background image out
 		backgroundImgId.src = 'background.jpg' // changing background image to new src.
 		backgroundImage.fadeIn(1000); // Fading new image in
 	})
+
+	var doorSelect = document.getElementById('doors')
+
+	if ( userCategory == "Super" || userCategory == "Van" ){
+		for (var i=0; i<doorSelect.length; i++) {
+	  	if (doorSelect.options[i].value == 4)
+	    doorSelect.remove(i);
+		}
+	}
 
 	setTimeout(function(){
 		$("#doorInfo").fadeIn(500, function(){});
@@ -324,6 +324,7 @@ function categoryFormComplete(){
 // Purpose is what takes place once the form is complete for the age.
 /********************************************************************/
 function doorFormComplete(){
+
 	var doorInfo = document.getElementById("categoryInfo"); // Getting the age info from html.
 
 	$("#doorInfo").fadeOut(500, function(){}); // Fading the age info out.
@@ -331,8 +332,6 @@ function doorFormComplete(){
 	selectCar()
 
 	console.log(selectedCar)
-	var backgroundImage = $('#imageBackground') // Background variable for fades
-	var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
 
 	backgroundImage.fadeOut(1000, function(){ // fading background image out
 		backgroundImgId.src = 'background.jpg' // changing background image to new src.
@@ -341,7 +340,7 @@ function doorFormComplete(){
 
 	var displaycarInfo = document.getElementById("displaycarInfo");
 	document.getElementById('carInfoMSG').innerHTML = firstname.value + ", We have chosen you a car! It is the "+ selectedCar.name;
-	document.getElementById('carPriceMSG').innerHTML = "It will cost you $"+ selectedCar.rentPrice +" per hour."
+	document.getElementById('carPriceMSG').innerHTML = "It will cost you $"+ selectedCar.rentPrice.toFixed(2) +" per hour."
 	setTimeout(function(){
 		$("#displaycarInfo").fadeIn(500, function(){});
 	}, 1500);
@@ -351,10 +350,6 @@ function displayCarDays(){
 	var displayCarInfo = document.getElementById("displaycarInfo"); // Getting the age info from html.
 
 	$("#displaycarInfo").fadeOut(500, function(){}); // Fading the age info out.
-
-
-	var backgroundImage = $('#imageBackground') // Background variable for fades
-	var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
 
 	backgroundImage.fadeOut(1000, function(){ // fading background image out
 		backgroundImgId.src = 'background.jpg' // changing background image to new src.
@@ -373,10 +368,6 @@ function daysFormComplete(){
 
 	$("#daysInfo").fadeOut(500, function(){}); // Fading the age info out.
 
-
-	var backgroundImage = $('#imageBackground') // Background variable for fades
-	var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
-
 	backgroundImage.fadeOut(1000, function(){ // fading background image out
 		backgroundImgId.src = 'background.jpg' // changing background image to new src.
 		backgroundImage.fadeIn(1000); // Fading new image in
@@ -387,9 +378,11 @@ function daysFormComplete(){
 		$("#receiptInfo").fadeIn(500, function(){});
 	}, 1500);
 	var finalPrice = selectedCar.rentPrice * userDays
+	var finalDays = userDays / 10;
 	document.getElementById('usersName').innerHTML = "Purchasers Name: "+ clientUsername
 	document.getElementById('usersVehicle').innerHTML = "Chosen Vehicle: "+ selectedCar.name;
-	document.getElementById('usersPrice').innerHTML = "Final Price: $"+ finalPrice;
+	document.getElementById('usersPrice').innerHTML = "Final Price: $"+ finalPrice.toFixed(2);
+	document.getElementById('usersDays').innerHTML = "Days Rented: "+ finalDays
 }
 
 /********************************************************************/
@@ -534,8 +527,6 @@ function setSuccessFor(_input) {
 /********************************************************************/
 function selectCar(){
 	selectedCar = rentVehicles.find((element) => element.carCategory == userCategory && element.carDoors == userDoors);
-	if( selectedCar.carCategory = "Super" ){
-	}
 }
 
 /********************************************************************/
