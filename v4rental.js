@@ -22,25 +22,23 @@ const maxAge = 90; // Max age available to rent.
 const minAge = 18; // Min age required to rent.
 const ageForm = document.getElementById('ageForm'); // Getting the age form from html.
 const rentalBasePrice = 8 // The Rentals base price.
-const categoryForm = document.getElementById('categoryForm');
-const categorySelect = document.getElementById('categories');
-const doorForm = document.getElementById('doorForm');
-const doorSelect = document.getElementById('doors');
-const daysSelect = document.getElementById('days');
-
-
-const daysForm = document.getElementById('daysForm');
+const categoryForm = document.getElementById('categoryForm'); // The category form variable
+const categorySelect = document.getElementById('categories'); // Category select variable
+const doorForm = document.getElementById('doorForm'); // Getting the door form from html
+const doorSelect = document.getElementById('doors'); // Getting the door select from html
+const daysSelect = document.getElementById('days'); // Getting the days select from html
+const daysForm = document.getElementById('daysForm'); // Getting the days form from html
 
 // Variables
 var validFirstName = false; // Valid first name
 var validLastName = false; // Valid last name
 var validName = false; // Valid Name
 var validAge = false; // Valid Age
-var userCategory;
-var userDoors;
-var selectedCar;
-var userDays;
-var clientUsername;
+var userCategory; // Users Chosen Category
+var userDoors; // Users chosen amount of doors
+var selectedCar; // Users selected car
+var userDays; // Users amount of days
+var clientUsername; // Clients name
 
 var backgroundImage = $('#imageBackground') // Background variable for fades
 var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
@@ -49,186 +47,186 @@ var backgroundImgId = document.getElementById('imageBackground'); // Background 
 
 // Supercars
 var mclarenP = {
-	name: "Mclaren P1",
-	carCategory: "Super",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 4
+	name: "Mclaren P1", // Vehicles Name
+	carCategory: "Super", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 4 // Vehicles Price
 }
 
 // Muscle
 var dodgeChargerRT = {
-	name: "Dodge Challenger R/T",
-	carCategory: "Muscle",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 2.6
+	name: "Dodge Challenger R/T", // Vehicles Name
+	carCategory: "Muscle", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 2.6 // Vehicles Price
 }
 
 // SUV
 var jeepWrangler = {
-	name: "Jeep Wrangler JL 2-Door",
-	carCategory: "SUV",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 1.6
+	name: "Jeep Wrangler JL 2-Door", // Vehicles Name
+	carCategory: "SUV", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 1.6 // Vehicles Price
 }
 var fordEscape = {
-	name: "2020 Ford Escape",
-	carCategory: "SUV",
-	carDoors: 4,
-	rentPrice: rentalBasePrice * 1.7
+	name: "2020 Ford Escape", // Vehicles Name
+	carCategory: "SUV", // Vehicles Category
+	carDoors: 4, // Vehicles Door
+	rentPrice: rentalBasePrice * 1.7 // Vehicles Price
 }
 
 // Sedan
 var hondaAccord = {
-	name: "2020 Honda Accord",
-	carCategory: "Sedan",
-	carDoors: 4,
-	rentPrice: rentalBasePrice * 1.5
+	name: "2020 Honda Accord", // Vehicles Name
+	carCategory: "Sedan", // Vehicles Category
+	carDoors: 4, // Vehicles Door
+	rentPrice: rentalBasePrice * 1.5 // Vehicles Price
 }
 var mazdaRX = {
-	name: "2012 Mazda RX-8",
-	carCategory: "Sedan",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 1.2
+	name: "2012 Mazda RX-8", // Vehicles Name
+	carCategory: "Sedan", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 1.2 // Vehicles Price
 }
 
 // Hatchback
 var hondaTypeR = {
-	name: "2020 Honda Civic Type R",
-	carCategory: "Hatchback",
-	carDoors: 4,
-	rentPrice: rentalBasePrice * 2.2
+	name: "2020 Honda Civic Type R", // Vehicles Name
+	carCategory: "Hatchback", // Vehicles Category
+	carDoors: 4, // Vehicles Door
+	rentPrice: rentalBasePrice * 2.2 // Vehicles Price
 }
 var hyuandaiVelosterN = {
-	name: "2020 Hyundai Veloster N",
-	carCategory: "Hatchback",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 2.1
+	name: "2020 Hyundai Veloster N", // Vehicles Name
+	carCategory: "Hatchback", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 2.1 // Vehicles Price
 }
 
 // Coupe
 var fordMustang = {
-	name: "2020 Ford Mustang",
-	carCategory: "Coupe",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 2.8
+	name: "2020 Ford Mustang", // Vehicles Name
+	carCategory: "Coupe", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 2.8 // Vehicles Price
 }
 var audiA = {
-	name: "2018 Audi A5 Premium Plus",
-	carCategory: "Coupe",
-	carDoors: 4,
-	rentPrice: rentalBasePrice * 2.6
+	name: "2018 Audi A5 Premium Plus", // Vehicles Name
+	carCategory: "Coupe", // Vehicles Category
+	carDoors: 4, // Vehicles Door
+	rentPrice: rentalBasePrice * 2.6 // Vehicles Price
 }
 
 // Compact
 var kiaSoul = {
-	name: "2018 Kia Soul",
-	carCategory: "Compact",
-	carDoors: 4,
-	rentPrice: rentalBasePrice * 1.5
+	name: "2018 Kia Soul", // Vehicles Name
+	carCategory: "Compact", // Vehicles Category
+	carDoors: 4, // Vehicles Door
+	rentPrice: rentalBasePrice * 1.5 // Vehicles Price
 }
 var fiatFive = {
-	name: "2017 Fiat 500",
-	carCategory: "Compact",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 1.1
+	name: "2017 Fiat 500", // Vehicles Name
+	carCategory: "Compact", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 1.1 // Vehicles Price
 }
 
 // Sports
 var mercadesAMG = {
-	name: "Mercedes-AMG C63",
-	carCategory: "Sports",
-	carDoors: 4,
-	rentPrice: rentalBasePrice * 3
+	name: "Mercedes-AMG C63", // Vehicles Name
+	carCategory: "Sports", // Vehicles Category
+	carDoors: 4, // Vehicles Door
+	rentPrice: rentalBasePrice * 3 // Vehicles Price
 }
 var audiR = {
-	name: "2019 Audi R8",
-	carCategory: "Sports",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 3.2
+	name: "2019 Audi R8", // Vehicles Name
+	carCategory: "Sports", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 3.2 // Vehicles Price
 }
 
 // Convertible
 var jaguarFTypeConv = {
-	name: "2016 Jaguar F-Type Convertible",
-	carCategory: "Convertible",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 2.7
+	name: "2016 Jaguar F-Type Convertible", // Vehicles Name
+	carCategory: "Convertible", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 2.7 // Vehicles Price
 }
 var porschePanamera = {
-	name: "2011 Porsche Panamera Cabrio",
-	carCategory: "Convertible",
-	carDoors: 4,
-	rentPrice: rentalBasePrice * 2.4
+	name: "2011 Porsche Panamera Cabrio", // Vehicles Name
+	carCategory: "Convertible", // Vehicles Category
+	carDoors: 4, // Vehicles Door
+	rentPrice: rentalBasePrice * 2.4 // Vehicles Price
 }
 
 // Van
 var toyotaHiace = {
-	name: "Toyota Hiace ZR Cargo Van",
-	carCategory: "Van",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 2
+	name: "Toyota Hiace ZR Cargo Van", // Vehicles Name
+	carCategory: "Van", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 2 // Vehicles Price
 }
 
 // Luxury
 var rollsroyceDawn = {
-	name: "Rolls-Royce Dawn 2016",
-	carCategory: "Luxury",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 6
+	name: "Rolls-Royce Dawn 2016", // Vehicles Name
+	carCategory: "Luxury", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 6 // Vehicles Price
 }
 var rollsroyceGhost = {
-	name: "2012 Rolls-Royce Ghost",
-	carCategory: "Luxury",
-	carDoors: 4,
-	rentPrice: rentalBasePrice * 6
+	name: "2012 Rolls-Royce Ghost", // Vehicles Name
+	carCategory: "Luxury", // Vehicles Category
+	carDoors: 4, // Vehicles Door
+	rentPrice: rentalBasePrice * 6 // Vehicles Price
 }
 
 // Ute
 var fordUteFalcon = {
-	name: "2015 Ford Falcon Ute",
-	carCategory: "Ute",
-	carDoors: 2,
-	rentPrice: rentalBasePrice * 1.9
+	name: "2015 Ford Falcon Ute", // Vehicles Name
+	carCategory: "Ute", // Vehicles Category
+	carDoors: 2, // Vehicles Door
+	rentPrice: rentalBasePrice * 1.9 // Vehicles Price
 }
 var fordRaptor = {
-	name: "2019 Ford Range Raptor",
-	carCategory: "Ute",
-	carDoors: 4,
-	rentPrice: rentalBasePrice * 2.1
+	name: "2019 Ford Range Raptor", // Vehicles Name
+	carCategory: "Ute", // Vehicles Category
+	carDoors: 4, // Vehicles Door
+	rentPrice: rentalBasePrice * 2.1 // Vehicles Price
 }
 
 // Pickup
 var fordF = {
-	name: "2020 Ford f-150",
-	carCategory: "Pickup",
-	carDoors: 4,
-	rentPrice: rentalBasePrice * 2
+	name: "2020 Ford f-150", // Vehicles Name
+	carCategory: "Pickup", // Vehicles Category
+	carDoors: 4, // Vehicles Door
+	rentPrice: rentalBasePrice * 2 // Vehicles Price
 }
 
 // Array of vehicles
 
-const rentVehicles = [
-	mclarenP,
-	dodgeChargerRT,
-	jeepWrangler,
-	fordEscape,
-	hondaAccord,
-	mazdaRX,
-	hondaTypeR,
-	hyuandaiVelosterN,
-	fordMustang,
-  audiA,
-	kiaSoul,
-	fiatFive,
-	mercadesAMG,
-	audiR,
-	jaguarFTypeConv,
-	porschePanamera,
-	toyotaHiace,
-	rollsroyceDawn,
-	rollsroyceGhost,
-	fordUteFalcon,
-	fordRaptor,
+const rentVehicles = [ // Storing all the objects above into an array so I can use the .find() function
+	mclarenP, // Storing Mclaren Vehicle in array
+	dodgeChargerRT, // Storing Dodge Charger in array
+	jeepWrangler, // Storing Jeep Wrangler in array
+	fordEscape, // Storing Ford Escape in array
+	hondaAccord, // Storing Honda Accord in array
+	mazdaRX, // Storing Mazda RX in array
+	hondaTypeR, // Storing Honda Type R in array
+	hyuandaiVelosterN, // Storing Hyuandai Veloster N in array
+	fordMustang, // Storing the Ford Mustang in array
+  audiA, // Storing the Audi A in array
+	kiaSoul, // Storing the Kia Soul in array
+	fiatFive, // Storing the Fiat 500 in array
+	mercadesAMG, // storing the Mercades AMG in array
+	audiR, // Storing the Audi R8 in array
+	jaguarFTypeConv, // Storing the Jaguar F-Type in array
+	porschePanamera, // Storing the Porsche Panamera in array
+	toyotaHiace, // Storing the Toyota Hiace in array
+	rollsroyceDawn, // Storing the Rolls Royce Dawn in array
+	rollsroyceGhost, // Storing Rolls Royce Ghost in array
+	fordUteFalcon, // Storing the Ford Falcon Ute in array
+	fordRaptor, // Storing the Ford Raptor in array
 ]
 
 
@@ -287,7 +285,7 @@ function ageFormComplete(){
 	})
 
 	setTimeout(function(){
-		$("#categoryInfo").fadeIn(500, function(){});
+		$("#categoryInfo").fadeIn(500, function(){}); // Fading category info in
 	}, 1500);
 }
 
@@ -307,15 +305,22 @@ function categoryFormComplete(){
 
 	var doorSelect = document.getElementById('doors')
 
-	if ( userCategory == "Super" || userCategory == "Van" ){
-		for (var i=0; i<doorSelect.length; i++) {
-	  	if (doorSelect.options[i].value == 4)
-	    doorSelect.remove(i);
+	if ( userCategory == "Super" || userCategory == "Van" ){ // Removing the 4 doors if car dosent have 4 doors.
+		for (var i=0; i<doorSelect.length; i++) { // Looping through the options
+	  	if (doorSelect.options[i].value == 4) // Looking for a match to 4
+	    doorSelect.remove(i); // Removing that match
+		}
+	}
+
+	if ( userCategory == "Pickup" ){ // removing the 2 doors for the pickup option
+		for (var i=0; i<doorSelect.length; i++) { // Looping through the options
+	  	if (doorSelect.options[i].value == 2) // Looking for a match to 2
+	    doorSelect.remove(i); // removing that match
 		}
 	}
 
 	setTimeout(function(){
-		$("#doorInfo").fadeIn(500, function(){});
+		$("#doorInfo").fadeIn(500, function(){}); // fading door info in
 	}, 1500);
 }
 
@@ -341,11 +346,16 @@ function doorFormComplete(){
 	var displaycarInfo = document.getElementById("displaycarInfo");
 	document.getElementById('carInfoMSG').innerHTML = firstname.value + ", We have chosen you a car! It is the "+ selectedCar.name;
 	document.getElementById('carPriceMSG').innerHTML = "It will cost you $"+ selectedCar.rentPrice.toFixed(2) +" per hour."
+
 	setTimeout(function(){
-		$("#displaycarInfo").fadeIn(500, function(){});
+		$("#displaycarInfo").fadeIn(500, function(){}); // Fading car info in
 	}, 1500);
 }
 
+/********************************************************************/
+// Display Car Days Function
+// Purpose is to display the amount of days aloud to rent
+/********************************************************************/
 function displayCarDays(){
 	var displayCarInfo = document.getElementById("displaycarInfo"); // Getting the age info from html.
 
@@ -363,6 +373,11 @@ function displayCarDays(){
 
 }
 
+/********************************************************************/
+// Days Form Complete
+// Purpose is to check if days form is complete
+/********************************************************************/
+
 function daysFormComplete(){
 	var daysInfo = document.getElementById("daysInfo"); // Getting the age info from html.
 
@@ -375,14 +390,14 @@ function daysFormComplete(){
 
 	var recieptInfo = document.getElementById("receiptInfo");
 	setTimeout(function(){
-		$("#receiptInfo").fadeIn(500, function(){});
+		$("#receiptInfo").fadeIn(500, function(){}); // Waiting to face in receipt info
 	}, 1500);
-	var finalPrice = selectedCar.rentPrice * userDays
-	var finalDays = userDays / 10;
-	document.getElementById('usersName').innerHTML = "Purchasers Name: "+ clientUsername
-	document.getElementById('usersVehicle').innerHTML = "Chosen Vehicle: "+ selectedCar.name;
-	document.getElementById('usersPrice').innerHTML = "Final Price: $"+ finalPrice.toFixed(2);
-	document.getElementById('usersDays').innerHTML = "Days Rented: "+ finalDays
+	var finalPrice = selectedCar.rentPrice * userDays; // Calculating the final price
+	var finalDays = userDays / 10; // Displaying the users days
+	document.getElementById('usersName').innerHTML = "Hirers Name: "+ clientUsername; // Showing the users name
+	document.getElementById('usersVehicle').innerHTML = "Chosen Vehicle: "+ selectedCar.name; // Showing the users selected car
+	document.getElementById('usersPrice').innerHTML = "Final Price: $"+ finalPrice.toFixed(2); // Showing the final price
+	document.getElementById('usersDays').innerHTML = "Days Rented: "+ finalDays // Showing how many days rented for
 }
 
 /********************************************************************/
@@ -426,9 +441,9 @@ ageForm.addEventListener('submit', e => { // Listening for event.
 categoryForm.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
 
-	userCategory = categorySelect.options[categorySelect.selectedIndex].value;
-	categoryFormComplete()
-	console.log(userCategory)
+	userCategory = categorySelect.options[categorySelect.selectedIndex].value; // Setting the users category
+	categoryFormComplete() // Running the complete function
+	// console.log(userCategory) // Console log for testing
 });
 
 /********************************************************************/
@@ -437,9 +452,9 @@ categoryForm.addEventListener('submit', e => { // Listening for event.
 doorForm.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
 
-	userDoors = doorSelect.options[doorSelect.selectedIndex].value;
-	doorFormComplete()
-	console.log(userDoors)
+	userDoors = doorSelect.options[doorSelect.selectedIndex].value; // Getting the users selected doors.
+	doorFormComplete() // Door Form complete function
+	// console.log(userDoors) // Console log for testing
 });
 
 /********************************************************************/
@@ -448,9 +463,9 @@ doorForm.addEventListener('submit', e => { // Listening for event.
 daysForm.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
 
-	userDays = daysSelect.options[daysSelect.selectedIndex].value;
-	console.log(userDays);
-	daysFormComplete();
+	userDays = daysSelect.options[daysSelect.selectedIndex].value; // Getting the users selected days
+	// console.log(userDays); // Console log for testing
+	daysFormComplete(); // Running the days form complete function
 });
 
 /********************************************************************/
@@ -526,7 +541,7 @@ function setSuccessFor(_input) {
 // Purpose is to choose a car that suits the user.
 /********************************************************************/
 function selectCar(){
-	selectedCar = rentVehicles.find((element) => element.carCategory == userCategory && element.carDoors == userDoors);
+	selectedCar = rentVehicles.find((element) => element.carCategory == userCategory && element.carDoors == userDoors); // Finding a match for the user
 }
 
 /********************************************************************/
