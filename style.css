@@ -483,3 +483,39 @@ body {
   margin: 8px 0;
   border-bottom: 1px solid #1ca44c;
 }
+
+.receipt-back {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  width: 520px;
+  height: 420px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  border: 3px solid #1ca44c;
+  display: none;
+}
+
+.receipt-box{
+  width: 500px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.receipt-box h1{
+  float: center;
+  text-align: center;
+  font-size: 30px;
+  border-bottom: 6px solid #1ca44c;
+  margin-bottom: 20px;
+  padding: 13px 0;
+  color: #1ca44c;
+}
+
+.receipt-box p {
+  text-align: center;
+}

@@ -21,11 +21,14 @@ const userAge = document.getElementById('userage'); // Getting the users age inp
 const maxAge = 90; // Max age available to rent.
 const minAge = 18; // Min age required to rent.
 const ageForm = document.getElementById('ageForm'); // Getting the age form from html.
-const rentalBasePrice = 15 // The Rentals base price.
+const rentalBasePrice = 8 // The Rentals base price.
 const categoryForm = document.getElementById('categoryForm');
 const categorySelect = document.getElementById('categories');
 const doorForm = document.getElementById('doorForm');
 const doorSelect = document.getElementById('doors');
+const daysSelect = document.getElementById('days');
+
+
 const daysForm = document.getElementById('daysForm');
 
 // Variables
@@ -36,6 +39,8 @@ var validAge = false; // Valid Age
 var userCategory;
 var userDoors;
 var selectedCar;
+var userDays;
+var clientUsername;
 
 // Vehicle Tables
 
@@ -262,7 +267,7 @@ function nameFormComplete(){
 		backgroundImgId.src = 'background.jpg' // Background image new src
 		backgroundImage.fadeIn(1000); // background image fade back in
 	})
-
+	clientUsername = firstname.value +" "+ lastname.value
 	document.getElementById('ageMSG').innerHTML = firstname.value + ", What's your age?"; // Setting users first name + displaying
 
 	setTimeout(function(){
@@ -342,7 +347,7 @@ function doorFormComplete(){
 	}, 1500);
 }
 
-function displayCarComplete(){
+function displayCarDays(){
 	var displayCarInfo = document.getElementById("displaycarInfo"); // Getting the age info from html.
 
 	$("#displaycarInfo").fadeOut(500, function(){}); // Fading the age info out.
@@ -363,9 +368,37 @@ function displayCarComplete(){
 
 }
 
+function daysFormComplete(){
+	var daysInfo = document.getElementById("daysInfo"); // Getting the age info from html.
+
+	$("#daysInfo").fadeOut(500, function(){}); // Fading the age info out.
+
+
+	var backgroundImage = $('#imageBackground') // Background variable for fades
+	var backgroundImgId = document.getElementById('imageBackground'); // Background image from html
+
+	backgroundImage.fadeOut(1000, function(){ // fading background image out
+		backgroundImgId.src = 'background.jpg' // changing background image to new src.
+		backgroundImage.fadeIn(1000); // Fading new image in
+	})
+
+	var recieptInfo = document.getElementById("receiptInfo");
+	setTimeout(function(){
+		$("#receiptInfo").fadeIn(500, function(){});
+	}, 1500);
+	var finalPrice = selectedCar.rentPrice * userDays
+	document.getElementById('usersName').innerHTML = "Purchasers Name: "+ clientUsername
+	document.getElementById('usersVehicle').innerHTML = "Chosen Vehicle: "+ selectedCar.name;
+	document.getElementById('usersPrice').innerHTML = "Final Price: $"+ finalPrice;
+}
+
 /********************************************************************/
 // Form Sent Listners
-// Purpose is what takes place once the form is complete for the age.
+//
+/********************************************************************/
+
+/********************************************************************/
+// Name Form Sent Listners
 /********************************************************************/
 nameform.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
@@ -381,6 +414,9 @@ nameform.addEventListener('submit', e => { // Listening for event.
 	}
 });
 
+/********************************************************************/
+// Age Form Sent Listners
+/********************************************************************/
 ageForm.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
 
@@ -391,6 +427,9 @@ ageForm.addEventListener('submit', e => { // Listening for event.
 	}
 });
 
+/********************************************************************/
+// Category Form Sent Listners
+/********************************************************************/
 categoryForm.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
 
@@ -399,6 +438,9 @@ categoryForm.addEventListener('submit', e => { // Listening for event.
 	console.log(userCategory)
 });
 
+/********************************************************************/
+// Door Form Sent Listners
+/********************************************************************/
 doorForm.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
 
@@ -407,12 +449,16 @@ doorForm.addEventListener('submit', e => { // Listening for event.
 	console.log(userDoors)
 });
 
+/********************************************************************/
+// Days Form Sent Listners
+/********************************************************************/
 daysForm.addEventListener('submit', e => { // Listening for event.
 	e.preventDefault();
 
-	displayCarComplete();
+	userDays = daysSelect.options[daysSelect.selectedIndex].value;
+	console.log(userDays);
+	daysFormComplete();
 });
-
 
 /********************************************************************/
 // Validating Name Inputs
@@ -488,6 +534,8 @@ function setSuccessFor(_input) {
 /********************************************************************/
 function selectCar(){
 	selectedCar = rentVehicles.find((element) => element.carCategory == userCategory && element.carDoors == userDoors);
+	if( selectedCar.carCategory = "Super" ){
+	}
 }
 
 /********************************************************************/
