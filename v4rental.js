@@ -28,7 +28,6 @@ const doorForm = document.getElementById('doorForm'); // Getting the door form f
 const doorSelect = document.getElementById('doors'); // Getting the door select from html
 const daysSelect = document.getElementById('days'); // Getting the days select from html
 const daysForm = document.getElementById('daysForm'); // Getting the days form from html
-
 // Variables
 var validFirstName = false; // Valid first name
 var validLastName = false; // Valid last name
@@ -397,7 +396,7 @@ function daysFormComplete(){
 	document.getElementById('usersName').innerHTML = "Hirers Name: "+ clientUsername; // Showing the users name
 	document.getElementById('usersVehicle').innerHTML = "Chosen Vehicle: "+ selectedCar.name; // Showing the users selected car
 	document.getElementById('usersPrice').innerHTML = "Final Price: $"+ finalPrice.toFixed(2); // Showing the final price
-	document.getElementById('usersDays').innerHTML = "Days Rented: "+ finalDays // Showing how many days rented for
+	document.getElementById('usersDays').innerHTML = "Days Rented: "+ finalDays; // Showing how many days rented for
 }
 
 /********************************************************************/
@@ -501,6 +500,7 @@ function validateNameInputs() {
 function validateAgeInputs(){ // Validating the age Inputs
 
 	const ageValue = userAge.value.trim(); // trimming any spaces off the end
+	document.getElementById('usersAge').innerHTML = "Hirers Age: "+ ageValue; // Showing the users age at the end.
 
 	if(ageValue < minAge || ageValue > maxAge || !ageRegex.test(ageValue)){ // Checking the age is within range.
 		if(ageValue < minAge){ // Chgecking if age is under the min age to send too young message.
