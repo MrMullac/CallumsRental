@@ -11,12 +11,12 @@
 //
 /********************************************************************/
 
-
 // Constants
 const nameform = document.getElementById('nameform'); // Getting the name form from html.
 const firstname = document.getElementById('firstname'); // Getting the users first name input.
 const lastname = document.getElementById('lastname'); // Getting the users last name input.
 const nameRegex =  /^[A-Z][a-z0-9_-]{1,19}$/; // The name regex.
+const ageRegex = /^\d+$/; // Age Regex
 const userAge = document.getElementById('userage'); // Getting the users age input.
 const maxAge = 90; // Max age available to rent.
 const minAge = 18; // Min age required to rent.
@@ -502,12 +502,15 @@ function validateAgeInputs(){ // Validating the age Inputs
 
 	const ageValue = userAge.value.trim(); // trimming any spaces off the end
 
-	if(ageValue < minAge || ageValue > maxAge){ // Checking the age is within range.
+	if(ageValue < minAge || ageValue > maxAge || !ageRegex.test(ageValue)){ // Checking the age is within range.
 		if(ageValue < minAge){ // Chgecking if age is under the min age to send too young message.
 			setErrorFor(userAge, 'Your too young to rent a vehicle.') // Sending error message.
 		}
 		if(ageValue > maxAge){ // Checking if age is over the max age to send too old message.
 			setErrorFor(userAge, 'Your too old to rent a vehicle.') // Sending error message.
+		}
+		if(!ageRegex.test(ageValue)){ // Checking with regex
+			setErrorFor(userAge, 'Invalid Age') // Setting error for invalid name
 		}
 		validAge = false; // Making sure age isn't valid
 	} else {
