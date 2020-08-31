@@ -478,7 +478,7 @@ function validateNameInputs() {
 	const lastnameValue = lastname.value.trim(); // Making new const and trimming any spaces
 
   if(!nameRegex.test(firstnameValue)){ // Using regex to check first name is valid
-    setErrorFor(firstname, 'Invalid First Name') // Setting error message if above is false
+    setErrorFor(firstname, 'Invalid First Name(Check Capital Letters)') // Setting error message if above is false
 		validFirstName = false; // Making sure name isn't valid.
   } else {
     setSuccessFor(firstname) // Setting success if above is true
@@ -486,7 +486,7 @@ function validateNameInputs() {
   }
 
   if(!nameRegex.test(lastnameValue)){ // Checking Name is valid to regex.
-    setErrorFor(lastname, 'Invalid Last Name') // Sending error message if name isn't valid.
+    setErrorFor(lastname, 'Invalid Last Name(Check Capital Letters)') // Sending error message if name isn't valid.
 		validLastName = false; // Making sure name isn't valid if returns false.
   } else {
     setSuccessFor(lastname) // Setting success if name is valid
