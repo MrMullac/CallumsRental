@@ -15,7 +15,7 @@
 const nameform = document.getElementById('nameform'); // Getting the name form from html.
 const firstname = document.getElementById('firstname'); // Getting the users first name input.
 const lastname = document.getElementById('lastname'); // Getting the users last name input.
-const nameRegex =  /^[A-Z][a-z0-9_-]{1,19}$/; // The name regex.
+const nameRegex = /^[A-Z][a-z0-9_-]{1,19}$/; // The name regex.
 const ageRegex = /^\d+$/; // Age Regex
 const userAge = document.getElementById('userage'); // Getting the users age input.
 const maxAge = 90; // Max age available to rent.
@@ -226,6 +226,7 @@ const rentVehicles = [ // Storing all the objects above into an array so I can u
 	rollsroyceGhost, // Storing Rolls Royce Ghost in array
 	fordUteFalcon, // Storing the Ford Falcon Ute in array
 	fordRaptor, // Storing the Ford Raptor in array
+	fordF, // Storing the Ford F-150
 ]
 
 
@@ -397,6 +398,7 @@ function daysFormComplete(){
 	document.getElementById('usersVehicle').innerHTML = "Chosen Vehicle: "+ selectedCar.name; // Showing the users selected car
 	document.getElementById('usersPrice').innerHTML = "Final Price: $"+ finalPrice.toFixed(2); // Showing the final price
 	document.getElementById('usersDays').innerHTML = "Days Rented: "+ finalDays; // Showing how many days rented for
+	document.getElementById('usersCategory').innerHTML = "Vehicle Category: "+ userCategory // Displaying users chosen category.
 }
 
 /********************************************************************/
